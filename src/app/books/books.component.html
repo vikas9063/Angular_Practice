@@ -1,0 +1,13 @@
+
+<div>
+    <!-- <div class="cart">
+        <h4>Cart</h4>
+        <span class="fa fa-cart-plus fa-2x"></span>
+        <b class="count">{{card.length}}</b>
+    </div> -->
+    <ul>
+        <li *ngFor="let book of books;">
+            <app-book   [book] = "book"></app-book>
+        </li>
+    </ul>
+</div>

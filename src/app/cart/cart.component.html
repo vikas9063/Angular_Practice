@@ -1,0 +1,59 @@
+<!-- <p>My Cart </p>
+<p>{{getCart().length}}</p> -->
+
+<div class="container">
+    <div class="card m-2">
+        <div class="card-header bg-primary text-light d-flex justify-content-between">
+            <h5>Cart</h5>
+            <div class="d-flex">
+                <span class="fa fa-cart-plus fa-2x me-2"></span>
+                <strong>{{getCart().length}}</strong>
+            </div>
+        </div>
+        <ng-container *ngIf="getCart().length > 0">
+            <div  class="card-body" *ngFor="let cartBook of getCart()">
+                <div  class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="container text-center">
+                                <img src="{{cartBook.source}}"
+                                height="80px" width="80px" />
+                            <p>{{cartBook.name}}</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <h4>{{cartBook.name}}</h4>
+                            <p>Product Desc</p>
+                            <strong>{{cartBook.price | currency:'INR'}}</strong>
+                        </div>
+                        <div class="col d-flex justify-content-evenly align-items-center">
+                            <nav aria-label="...">
+                                <ul class="pagination">
+                                    <li class="page-item">
+                                        <a  class="page-link"><span class="fa fa-minus-square"></span></a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link">{{qty}}</a></li>
+    
+                                    <li class="page-item">
+                                        <a class="page-link" (click)="increaseQty()"><span class="fa fa-plus-square"></span></a>
+                                    </li>
+                                </ul>
+                            </nav>
+                           
+                        </div>
+                    </div>
+                    <hr />
+                </div>
+                
+               
+            </div>
+        </ng-container>
+        <div *ngIf="getCart().length == 0" class="card-body">
+            <h3>No Items Added in Cart ...</h3>
+        </div>
+       <div class="card-footer d-flex justify-content-between">
+            <button class="btn btn-sm btn-primary">Continue to Shop</button>
+            <button class="btn btn-sm btn-danger">Proceed To CheckOut</button>
+       </div>
+    </div>
+</div>

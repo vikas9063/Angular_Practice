@@ -1,0 +1,17 @@
+<div class="card m-3">
+    <div class="card-header">
+        <img [src]="book.source" [alt]="book.name" />
+    </div>
+    <div class="card-body">
+        <p>Name: {{book.name | titlecase}}</p>
+        <p>Author: {{book.author | titlecase}}</p>
+        <strong>price: {{book.price | currency : 'INR'}}</strong>
+        <br />
+        <br />
+        <div class="contaiiner text-center">
+            <button *ngIf="!isInCart" (click)="addToCard()" class="btn btn-sm btn-outline-primary">Add to Cart</button>
+            <button *ngIf="isInCart" (click)="removeToCard()" class="btn btn-sm btn-outline-primary">Remove from
+                Cart</button>
+        </div>
+    </div>
+</div>
